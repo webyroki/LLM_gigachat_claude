@@ -1,0 +1,37 @@
+{
+    "mcpServers": {
+      "tavily-mcp": {
+        "command": "npx",
+        "args": ["-y", "tavily-mcp"],
+        "enabled": true,
+        "env": {
+          "TAVILY_API_KEY": "${TAVILY_API_KEY}"
+        },
+        "autoApprove": [],
+        "description": "Поиск актуальной информации в интернете"
+      },
+      "doc-generator": {
+        "command": "python",
+        "args": ["mcp_modules/doc_generator.py"],
+        "enabled": true,
+        "cwd": ".",
+        "env": {},
+        "description": "Генерация документов по шаблонам .docx",
+        "autoApprove": []
+      },
+      "fs-mcp": {
+        "command": "python",
+        "args": ["mcp_modules/fs_mcp.py"],
+        "enabled": true,
+        "cwd": ".",
+        "env": {},
+        "description": "Файловые операции: создание, копирование, перемещение, удаление файлов и папок",
+        "autoApprove": []
+      }
+    },
+    "settings": {
+      "timeout": 30000,
+      "retries": 3,
+      "logLevel": "info"
+    }
+  }
