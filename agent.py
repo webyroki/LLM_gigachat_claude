@@ -5,18 +5,15 @@ import logging
 from datetime import datetime
 from dotenv import load_dotenv
 from langchain_gigachat.chat_models import GigaChat
-from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 from langchain_mcp_adapters.client import MultiServerMCPClient
-from langgraph.prebuilt import create_react_agent
 
 # Настройка логирования
 def setup_logging():
     """Настройка системы логирования"""
     log_dir = os.getenv('LOGS_PATH', './logs')
     os.makedirs(log_dir, exist_ok=True)
-    
     log_file = os.path.join(log_dir, f"agent_{datetime.now().strftime('%Y%m%d')}.log")
-    
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -34,19 +31,12 @@ logger = setup_logging()
 def load_config():
     """Загрузка и валидация конфигурационных файлов"""
     try:
-        # Загружаем правила и роль агента
         with open('rules.json', encoding='utf-8') as f:
             rules = json.load(f)
-        
-        # Загружаем настройки MCP серверов
         with open('mcp_servers.json', encoding='utf-8') as f:
             mcp_config = json.load(f)
-        
-        # Валидация конфигурации
         validate_config(rules, mcp_config)
-        
         return rules, mcp_config
-        
     except FileNotFoundError as e:
         logger.error(f"Конфигурационный файл не найден: {e}")
         raise
@@ -55,34 +45,23 @@ def load_config():
         raise
 
 def validate_config(rules, mcp_config):
-    """Валидация конфигурации"""
-    # Проверка обязательных полей в rules.json
     required_fields = ['role', 'language', 'rules']
     for field in required_fields:
         if field not in rules:
             raise ValueError(f"Отсутствует обязательное поле '{field}' в rules.json")
-    
-    # Проверка MCP серверов
     if 'mcpServers' not in mcp_config:
         raise ValueError("Отсутствует секция 'mcpServers' в mcp_servers.json")
-    
-    # Проверка активных серверов
-    active_servers = [name for name, config in mcp_config['mcpServers'].items() 
-                     if config.get('enabled', True)]
-    
+    active_servers = [name for name, config in mcp_config['mcpServers'].items() if config.get('enabled', True)]
     if not active_servers:
         logger.warning("Нет активных MCP серверов")
     else:
         logger.info(f"Активные MCP серверы: {', '.join(active_servers)}")
 
 def create_llm():
-    """Создание объекта GigaChat LLM с расширенными настройками"""
     credentials = os.getenv('GIGACHAT_CREDENTIALS')
     if not credentials:
         raise ValueError("GIGACHAT_CREDENTIALS не найден в переменных окружения")
-    
     logger.info("Инициализация GigaChat LLM...")
-    
     return GigaChat(
         credentials=credentials,
         scope=os.getenv('GIGACHAT_SCOPE', 'GIGACHAT_API_PERS'),
@@ -93,232 +72,201 @@ def create_llm():
     )
 
 def get_mcp_servers(mcp_config):
-    """Получение списка активных MCP серверов"""
     servers = {}
     for name, config in mcp_config['mcpServers'].items():
         if config.get('enabled', True):
             servers[name] = config
     return servers
 
-def create_system_prompt(rules):
-    """Создание системного промпта на основе конфигурации"""
+def create_system_prompt(rules, tools):
     base_prompt = rules['role']
-    
-    # Добавляем правила
     if 'rules' in rules:
         rules_text = "\n".join([f"- {rule}" for rule in rules['rules']])
         base_prompt += f"\n\nПравила работы:\n{rules_text}"
-    
-    # Добавляем workflow если есть
     if 'workflows' in rules:
         workflows_text = ""
         for workflow_name, steps in rules['workflows'].items():
             steps_text = "\n".join([f"  {step}" for step in steps])
             workflows_text += f"\n\n{workflow_name.replace('_', ' ').title()}:\n{steps_text}"
         base_prompt += f"\n\nРабочие процессы:{workflows_text}"
-    
-    # Добавляем стиль общения
     if 'personality' in rules:
         personality = rules['personality']
         base_prompt += f"\n\nСтиль общения: {personality.get('style', 'профессиональный')}"
         base_prompt += f"\nТон: {personality.get('tone', 'помогающий')}"
         base_prompt += f"\nПодход: {personality.get('approach', 'методичный')}"
-    
+    if tools:
+        tools_info = []
+        for tool in tools:
+            tool_name = tool.name if hasattr(tool, 'name') else str(tool)
+            tool_desc = getattr(tool, 'description', 'Описание недоступно')
+            tools_info.append(f"- {tool_name}: {tool_desc}")
+        base_prompt += f"\n\nДоступные инструменты:\n" + "\n".join(tools_info)
+        base_prompt += f"\n\nВы можете использовать эти инструменты для выполнения задач пользователя. При необходимости использования инструмента, сначала объясните пользователю, что вы собираетесь делать."
     return base_prompt
 
+async def call_tool_by_name(tools_dict, tool_name, params):
+    """Вызов инструмента по имени с параметрами"""
+    if tool_name not in tools_dict:
+        return f"❌ Инструмент '{tool_name}' не найден."
+    try:
+        tool = tools_dict[tool_name]
+        result = await tool.ainvoke(params)
+        return result
+    except Exception as e:
+        logger.error(f"Ошибка вызова инструмента {tool_name}: {e}")
+        return f"❌ Ошибка при выполнении {tool_name}: {e}"
+
+async def process_user_request(user_input, llm, tools_dict, messages):
+    """Обработка запроса пользователя с возможностью вызова инструментов"""
+    # Прямые команды для инструментов
+    if user_input.lower().startswith("покажи файлы") and "list_files" in tools_dict:
+        parts = user_input.split(maxsplit=2)
+        directory = parts[2] if len(parts) > 2 else "."
+        result = await call_tool_by_name(tools_dict, "list_files", {"directory": directory})
+        return f"📁 Список файлов в '{directory}':\n{result}"
+    elif user_input.lower().startswith("создай папку") and "create_folder" in tools_dict:
+        parts = user_input.split(maxsplit=2)
+        if len(parts) < 3:
+            return "❗ Укажите имя папки."
+        folder_path = parts[2]
+        result = await call_tool_by_name(tools_dict, "create_folder", {"folder_path": folder_path})
+        return f"📁 {result}"
+    elif user_input.lower().startswith("удали файл") and "delete_file" in tools_dict:
+        parts = user_input.split(maxsplit=2)
+        if len(parts) < 3:
+            return "❗ Укажите имя файла."
+        filename = parts[2]
+        result = await call_tool_by_name(tools_dict, "delete_file", {"filename": filename})
+        return f"🗑️ {result}"
+    elif user_input.lower().startswith("создай файл") and "create_docx" in tools_dict:
+        parts = user_input.split(maxsplit=2)
+        if len(parts) < 3:
+            return "❗ Укажите имя файла и текст."
+        filename_and_text = parts[2].split(maxsplit=1)
+        filename = filename_and_text[0]
+        text = filename_and_text[1] if len(filename_and_text) > 1 else ""
+        result = await call_tool_by_name(tools_dict, "create_docx", {"filename": filename, "text": text})
+        return f"📄 {result}"
+    elif user_input.lower().startswith("прочитай файл") and "read_docx" in tools_dict:
+        parts = user_input.split(maxsplit=2)
+        if len(parts) < 3:
+            return "❗ Укажите имя файла."
+        path = parts[2]
+        result = await call_tool_by_name(tools_dict, "read_docx", {"path": path})
+        return f"📄 Содержимое файла '{path}':\n{result}"
+    # Для сложных запросов используем LLM
+    else:
+        messages.append(HumanMessage(content=user_input))
+        # Создаем чистые сообщения для GigaChat
+        clean_messages = []
+        for msg in messages:
+            if isinstance(msg, SystemMessage):
+                clean_messages.append(SystemMessage(content=msg.content))
+            elif isinstance(msg, HumanMessage):
+                clean_messages.append(HumanMessage(content=msg.content))
+            elif isinstance(msg, AIMessage):
+                clean_messages.append(AIMessage(content=msg.content))
+        response = await llm.ainvoke(clean_messages)
+        if hasattr(response, 'content'):
+            reply = response.content
+        else:
+            reply = str(response)
+        messages.append(AIMessage(content=reply))
+        return reply
+
 async def ask_confirmation(message):
-    """Запрос подтверждения от пользователя"""
     print(f"\n⚠️  {message}")
     response = input("Подтвердить? (да/нет): ").strip().lower()
     return response in ['да', 'yes', 'y', 'д']
 
 async def initialize_agent():
-    """Инициализация агента с расширенной обработкой ошибок"""
     try:
         rules, mcp_config = load_config()
         llm = create_llm()
         mcp_servers = get_mcp_servers(mcp_config)
-        
         if not mcp_servers:
             raise ValueError("Нет активных MCP серверов для подключения")
-        
         logger.info(f"Подключение к MCP серверам: {list(mcp_servers.keys())}")
-        
-        # Настройка таймаута из конфигурации
-        timeout = mcp_config.get('settings', {}).get('timeout', 30000) / 1000
-        
         client = MultiServerMCPClient(mcp_servers)
-        await asyncio.wait_for(client.__aenter__(), timeout=timeout)
-        
         tools = await client.get_tools()
         logger.info(f"Загружено MCP инструментов: {len(tools)}")
-        
-        # Логируем доступные инструменты
-        tool_names = [tool.name if hasattr(tool, 'name') else str(tool) for tool in tools]
-        logger.info(f"Доступные инструменты: {', '.join(tool_names)}")
-        
-        agent = create_react_agent(llm, tools)
-        
-        return agent, client, rules
-        
-    except asyncio.TimeoutError:
-        logger.error("Таймаут при подключении к MCP серверам")
-        raise
+        return client, rules, tools, llm
     except Exception as e:
         logger.error(f"Ошибка инициализации агента: {e}")
         raise
 
 def print_welcome_message(rules):
-    """Красивое приветственное сообщение"""
     print("\n" + "="*70)
     print("🤖 ИНТЕЛЛЕКТУАЛЬНЫЙ АГЕНТ ДОКУМЕНТООБОРОТА")
     print("="*70)
-    
     print(f"\n👤 Роль: {rules.get('role', 'Помощник по документам')}")
     print(f"🌐 Язык: {rules.get('language', 'русский')}")
-    
     if 'personality' in rules:
         personality = rules['personality']
         print(f"🎭 Стиль: {personality.get('style', 'профессиональный')}")
-    
     if 'rules' in rules:
         print(f"\n📋 Основные правила ({len(rules['rules'])}):")
-        for i, rule in enumerate(rules['rules'][:5], 1):  # Показываем первые 5 правил
+        for i, rule in enumerate(rules['rules'][:5], 1):
             print(f"   {i}. {rule}")
         if len(rules['rules']) > 5:
             print(f"   ... и еще {len(rules['rules']) - 5} правил")
-    
     if 'examples' in rules and 'greetings' in rules['examples']:
         import random
         greeting = random.choice(rules['examples']['greetings'])
         print(f"\n💬 {greeting}")
-    
     print("\n" + "="*70)
     print("💡 Введите ваш запрос или команду:")
     print("   • 'помощь' - список доступных команд")
-    print("   • 'статус' - информация о системе") 
+    print("   • 'статус' - информация о системе")
     print("   • 'выход' - завершение работы")
     print("="*70 + "\n")
 
 async def handle_special_commands(user_input, tools):
-    """Обработка специальных команд"""
     command = user_input.lower().strip()
-    
     if command in ['помощь', 'help']:
         print("\n📖 Доступные команды:")
         print("• Создание документов по шаблонам")
-        print("• Анализ структуры шаблонов")  
+        print("• Анализ структуры шаблонов")
         print("• Поиск актуальной информации")
         print("• Автоматизация документооборота")
+        print("• MCP команды: 'покажи файлы', 'создай файл', 'создай папку', 'удали файл'")
         return True
-    
     elif command in ['статус', 'status']:
         print(f"\n📊 Статус системы:")
         print(f"• Доступно MCP инструментов: {len(tools)}")
         print(f"• Время работы: {datetime.now().strftime('%H:%M:%S')}")
         print(f"• Логи: {os.getenv('LOGS_PATH', './logs')}")
         return True
-    
-    elif user_input.lower().startswith("прочитай файл"):
-        # Команда для чтения содержимого DOCX-файла
-        parts = user_input.split(maxsplit=2)
-        if len(parts) == 3:
-            file_path = parts[2]
-        else:
-            file_path = input("Введите путь к DOCX-файлу: ").strip()
-        tool = next((t for t in tools if hasattr(t, 'name') and t.name == 'read_docx'), None)
-        if not tool:
-            print("❌ Инструмент чтения DOCX не найден.\n")
-            return False
-        try:
-            result = await tool.ainvoke({"path": file_path})
-            print(f"\n📄 Содержимое файла '{file_path}':\n{result if isinstance(result, str) else str(result)}\n")
-        except Exception as e:
-            print(f"❌ Ошибка при чтении файла: {e}\n")
-        return True
-    
     return False
 
 async def run_agent():
-    """Основной цикл работы агента с улучшенной обработкой"""
-    agent = None
     client = None
-    
     try:
-        agent, client, rules = await initialize_agent()
+        client, rules, tools, llm = await initialize_agent()
         print_welcome_message(rules)
-        
-        system_prompt = create_system_prompt(rules)
+        system_prompt = create_system_prompt(rules, tools)
         system_message = SystemMessage(content=system_prompt)
-        
         messages = [system_message]
-        tools = await client.get_tools()
-        
         tool_names = [tool.name if hasattr(tool, 'name') else str(tool) for tool in tools]
         logger.info(f"Доступные инструменты: {', '.join(tool_names)}")
-        
+        tools_dict = {tool.name: tool for tool in tools if hasattr(tool, 'name')}
         while True:
             try:
                 user_input = input("👤 Вы: ").strip()
-                
                 if user_input.lower() in ["выход", "exit", "quit", "q"]:
                     print("\n👋 До свидания! Удачной работы с документами!")
                     break
-                
                 if not user_input:
                     continue
-                
                 if await handle_special_commands(user_input, tools):
                     continue
-                
-                # Явная обработка ключевых слов для докладной записки
-                keywords = ["докладная", "записка"]
-                if any(word in user_input.lower() for word in keywords):
-                    print("\n📝 Обнаружен запрос на создание докладной записки.")
-                    # Запросить основной текст для вставки в шаблон
-                    main_text = input("Введите основной текст для докладной записки: ").strip()
-                    if not main_text:
-                        print("❗ Текст не может быть пустым. Операция отменена.\n")
-                        continue
-                    # Путь к шаблону и выходному файлу
-                    template_path = os.path.join("templates", "докладная записка.docx")
-                    output_path = os.path.join("output", f"докладная_записка_{datetime.now().strftime('%Y%m%d_%H%M%S')}.docx")
-                    context = {"text": main_text}
-                    # Поиск инструмента генерации docx
-                    tool = next((t for t in tools if hasattr(t, 'name') and t.name == 'generate_docx'), None)
-                    if not tool:
-                        print("❌ Инструмент генерации документов не найден.\n")
-                        continue
-                    # Вызов MCP-инструмента
-                    try:
-                        result = await tool.ainvoke({
-                            "path_template": template_path,
-                            "context": context,
-                            "output_path": output_path
-                        })
-                        print(f"\n✅ {result if isinstance(result, str) else 'Докладная записка успешно создана.'}\n")
-                    except Exception as e:
-                        print(f"❌ Ошибка при создании докладной: {e}\n")
-                    continue
-                
-                messages.append(HumanMessage(content=user_input))
                 print("\n🤔 Анализирую запрос...")
-                
                 response = await asyncio.wait_for(
-                    agent.ainvoke({"messages": messages}),
+                    process_user_request(user_input, llm, tools_dict, messages),
                     timeout=60
                 )
-                
-                if hasattr(response['messages'][-1], 'content'):
-                    reply = response['messages'][-1].content
-                else:
-                    reply = str(response['messages'][-1])
-                
-                print(f"\n🤖 Агент: {reply}")
+                print(f"\n🤖 Агент: {response}")
                 print("\n" + "-"*50 + "\n")
-                
-                messages.append(response['messages'][-1])
-                
             except asyncio.TimeoutError:
                 print("⏰ Запрос занимает слишком много времени. Попробуйте упростить задачу.")
             except KeyboardInterrupt:
@@ -328,16 +276,14 @@ async def run_agent():
                 logger.error(f"Ошибка в цикле агента: {e}")
                 print(f"❌ Произошла ошибка: {e}")
                 print("Попробуйте еще раз или обратитесь к администратору.\n")
-    
     except Exception as e:
         logger.error(f"Критическая ошибка: {e}")
         print(f"❌ Критическая ошибка при запуске: {e}")
-    
     finally:
         if client:
             try:
-                await client.__aexit__(None, None, None)
-                logger.info("MCP клиент корректно закрыт")
+                await client.close()
+                logger.info("MCP клиент завершил работу")
             except Exception as e:
                 logger.error(f"Ошибка закрытия MCP клиента: {e}")
 

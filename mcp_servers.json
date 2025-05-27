@@ -3,12 +3,13 @@
       "tavily-mcp": {
         "command": "npx",
         "args": ["-y", "tavily-mcp"],
-        "enabled": true,
+        "enabled": false,
         "env": {
           "TAVILY_API_KEY": "${TAVILY_API_KEY}"
         },
         "autoApprove": [],
-        "description": "Поиск актуальной информации в интернете"
+        "description": "Поиск актуальной информации в интернете",
+        "transport": "stdio"
       },
       "doc-generator": {
         "command": "python",
@@ -17,7 +18,8 @@
         "cwd": ".",
         "env": {},
         "description": "Генерация документов по шаблонам .docx",
-        "autoApprove": []
+        "autoApprove": [],
+        "transport": "stdio"
       },
       "fs-mcp": {
         "command": "python",
@@ -26,7 +28,8 @@
         "cwd": ".",
         "env": {},
         "description": "Файловые операции: создание, копирование, перемещение, удаление файлов и папок",
-        "autoApprove": []
+        "autoApprove": [],
+        "transport": "stdio"
       }
     },
     "settings": {
