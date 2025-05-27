@@ -1,7 +1,6 @@
 langchain-gigachat
 langchain-core
 langchain-mcp-adapters
-langgraph
 python-dotenv
 docxtpl
-mcp 
+mcp
