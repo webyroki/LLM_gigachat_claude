@@ -1,6 +1,7 @@
 # MCP-сервер для генерации .docx файлов по шаблону
-from context7.mcp.server.fastmcp import FastMCP
-from docxtpl import DocxTemplate, TemplateError
+import sys
+from mcp.server.fastmcp import FastMCP
+from docxtpl import DocxTemplate
 import os
 from datetime import datetime
 import logging
@@ -62,9 +63,6 @@ def generate_docx(path_template: str, context: dict, output_path: str) -> str:
     except FileNotFoundError as e:
         logger.error(f"Файл не найден: {e}")
         return f"❌ Файл не найден: {e}"
-    except TemplateError as e:
-        logger.error(f"Ошибка шаблона: {e}")
-        return f"❌ Ошибка в шаблоне: {e}"
     except Exception as e:
         logger.error(f"Неожиданная ошибка: {e}")
         return f"❌ Ошибка генерации: {e}"
@@ -90,7 +88,7 @@ def get_template_variables(path_template: str) -> str:
             return "ℹ️ В шаблоне не найдено переменных для подстановки"
         
         variables_str = ", ".join(f"'{var}'" for var in sorted(variables))
-        return f"�� Переменные в шаблоне: {variables_str}"
+        return f" Переменные в шаблоне: {variables_str}"
         
     except Exception as e:
         logger.error(f"Ошибка получения переменных: {e}")
@@ -169,5 +167,6 @@ def append_to_docx(path: str, text: str) -> str:
 
 # Точка входа MCP-сервера
 if __name__ == "__main__":
-    logger.info("Запуск MCP-сервера DocGenerator...")
-    mcp.run(transport="stdio")
+    transport = sys.argv[1] if len(sys.argv) > 1 else "stdio"
+    logger.info(f"Запуск MCP-сервера DocGenerator с транспортом {transport}...")
+    mcp.run(transport=transport)

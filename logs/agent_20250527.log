@@ -1,0 +1,215 @@
+2025-05-27 21:24:20,755 - __main__ - INFO - Активные MCP серверы: tavily-mcp, doc-generator, fs-mcp
+2025-05-27 21:24:20,755 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 21:24:20,835 - __main__ - INFO - Подключение к MCP серверам: ['tavily-mcp', 'doc-generator', 'fs-mcp']
+2025-05-27 21:24:20,835 - __main__ - ERROR - Ошибка инициализации агента: As of langchain-mcp-adapters 0.1.0, MultiServerMCPClient cannot be used as a context manager (e.g., async with MultiServerMCPClient(...)). Instead, you can do one of the following:
+1. client = MultiServerMCPClient(...)
+   tools = await client.get_tools()
+2. client = MultiServerMCPClient(...)
+   async with client.session(server_name) as session:
+       tools = await load_mcp_tools(session)
+2025-05-27 21:24:20,835 - __main__ - ERROR - Критическая ошибка: As of langchain-mcp-adapters 0.1.0, MultiServerMCPClient cannot be used as a context manager (e.g., async with MultiServerMCPClient(...)). Instead, you can do one of the following:
+1. client = MultiServerMCPClient(...)
+   tools = await client.get_tools()
+2. client = MultiServerMCPClient(...)
+   async with client.session(server_name) as session:
+       tools = await load_mcp_tools(session)
+2025-05-27 21:24:44,381 - __main__ - INFO - Активные MCP серверы: tavily-mcp, doc-generator, fs-mcp
+2025-05-27 21:24:44,381 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 21:24:44,444 - __main__ - INFO - Подключение к MCP серверам: ['tavily-mcp', 'doc-generator', 'fs-mcp']
+2025-05-27 21:24:44,444 - __main__ - ERROR - Ошибка инициализации агента: As of langchain-mcp-adapters 0.1.0, MultiServerMCPClient cannot be used as a context manager (e.g., async with MultiServerMCPClient(...)). Instead, you can do one of the following:
+1. client = MultiServerMCPClient(...)
+   tools = await client.get_tools()
+2. client = MultiServerMCPClient(...)
+   async with client.session(server_name) as session:
+       tools = await load_mcp_tools(session)
+2025-05-27 21:24:44,444 - __main__ - ERROR - Критическая ошибка: As of langchain-mcp-adapters 0.1.0, MultiServerMCPClient cannot be used as a context manager (e.g., async with MultiServerMCPClient(...)). Instead, you can do one of the following:
+1. client = MultiServerMCPClient(...)
+   tools = await client.get_tools()
+2. client = MultiServerMCPClient(...)
+   async with client.session(server_name) as session:
+       tools = await load_mcp_tools(session)
+2025-05-27 21:35:58,933 - __main__ - INFO - Активные MCP серверы: tavily-mcp, doc-generator, fs-mcp
+2025-05-27 21:35:58,933 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 21:35:59,039 - __main__ - INFO - Подключение к MCP серверам: ['tavily-mcp', 'doc-generator', 'fs-mcp']
+2025-05-27 21:35:59,039 - __main__ - ERROR - Ошибка инициализации агента: As of langchain-mcp-adapters 0.1.0, MultiServerMCPClient cannot be used as a context manager (e.g., async with MultiServerMCPClient(...)). Instead, you can do one of the following:
+1. client = MultiServerMCPClient(...)
+   tools = await client.get_tools()
+2. client = MultiServerMCPClient(...)
+   async with client.session(server_name) as session:
+       tools = await load_mcp_tools(session)
+2025-05-27 21:35:59,039 - __main__ - ERROR - Критическая ошибка: As of langchain-mcp-adapters 0.1.0, MultiServerMCPClient cannot be used as a context manager (e.g., async with MultiServerMCPClient(...)). Instead, you can do one of the following:
+1. client = MultiServerMCPClient(...)
+   tools = await client.get_tools()
+2. client = MultiServerMCPClient(...)
+   async with client.session(server_name) as session:
+       tools = await load_mcp_tools(session)
+2025-05-27 21:36:51,761 - __main__ - INFO - Активные MCP серверы: tavily-mcp, doc-generator, fs-mcp
+2025-05-27 21:36:51,761 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 21:36:51,842 - __main__ - INFO - Подключение к MCP серверам: ['tavily-mcp', 'doc-generator', 'fs-mcp']
+2025-05-27 21:36:51,842 - __main__ - ERROR - Ошибка инициализации агента: 'transport'
+2025-05-27 21:36:51,842 - __main__ - ERROR - Критическая ошибка: 'transport'
+2025-05-27 21:38:37,949 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 21:38:37,949 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 21:38:38,025 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 21:40:17,945 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 21:40:17,945 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 21:40:18,024 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 21:42:17,572 - __main__ - ERROR - Ошибка инициализации агента: unhandled errors in a TaskGroup (1 sub-exception)
+2025-05-27 21:42:17,572 - __main__ - ERROR - Критическая ошибка: unhandled errors in a TaskGroup (1 sub-exception)
+2025-05-27 21:42:50,924 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 21:42:50,924 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 21:42:51,026 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 22:18:05,444 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:18:05,444 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:18:05,526 - __main__ - ERROR - Ошибка инициализации агента: Нет активных MCP серверов для подключения
+2025-05-27 22:18:05,527 - __main__ - ERROR - Критическая ошибка: Нет активных MCP серверов для подключения
+2025-05-27 22:18:52,624 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:18:52,624 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:18:52,695 - __main__ - ERROR - Ошибка инициализации агента: Нет активных MCP серверов для подключения
+2025-05-27 22:18:52,695 - __main__ - ERROR - Критическая ошибка: Нет активных MCP серверов для подключения
+2025-05-27 22:24:23,995 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:24:23,995 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:24:24,090 - __main__ - ERROR - Ошибка инициализации агента: Нет активных MCP серверов для подключения
+2025-05-27 22:24:24,090 - __main__ - ERROR - Критическая ошибка: Нет активных MCP серверов для подключения
+2025-05-27 22:25:18,041 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:25:18,041 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:25:18,120 - __main__ - ERROR - Ошибка инициализации агента: Нет активных MCP серверов для подключения
+2025-05-27 22:25:18,120 - __main__ - ERROR - Критическая ошибка: Нет активных MCP серверов для подключения
+2025-05-27 22:27:56,202 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:27:56,202 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:27:56,265 - __main__ - ERROR - Ошибка инициализации агента: Нет активных MCP серверов для подключения
+2025-05-27 22:27:56,265 - __main__ - ERROR - Критическая ошибка: Нет активных MCP серверов для подключения
+2025-05-27 22:28:07,879 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:28:07,879 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:28:07,942 - __main__ - ERROR - Ошибка инициализации агента: Нет активных MCP серверов для подключения
+2025-05-27 22:28:07,942 - __main__ - ERROR - Критическая ошибка: Нет активных MCP серверов для подключения
+2025-05-27 22:29:08,392 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:29:08,392 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:29:08,456 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 22:29:09,813 - __main__ - INFO - Загружено MCP инструментов: 12
+2025-05-27 22:29:09,845 - __main__ - INFO - Доступные инструменты: generate_docx, get_template_variables, validate_template, read_docx, append_to_docx, create_docx, list_files, copy_file, move_file, create_folder, delete_folder, delete_file
+2025-05-27 22:29:25,488 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2025-05-27 22:29:25,833 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 422 Unprocessable Entity"
+2025-05-27 22:29:25,833 - __main__ - ERROR - Ошибка в цикле агента: (URL('https://gigachat.devices.sberbank.ru/api/v1/chat/completions'), 422, b'{"status":422,"message":"Field \'properties.context.properties\' is missing"}\n', Headers({'server': 'SynGX', 'date': 'Tue, 27 May 2025 19:29:25 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '76', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization', 'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS', 'access-control-allow-origin': 'https://beta.saluteai.sberdevices.ru', 'x-request-id': '8ac91d1e-ee30-4be2-85a7-77a9afac25a6', 'x-session-id': 'd72da130-780c-4816-944f-af3b134a69ee', 'allow': 'GET, POST', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}))
+2025-05-27 22:29:50,122 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 422 Unprocessable Entity"
+2025-05-27 22:29:50,122 - __main__ - ERROR - Ошибка в цикле агента: (URL('https://gigachat.devices.sberbank.ru/api/v1/chat/completions'), 422, b'{"status":422,"message":"Field \'properties.context.properties\' is missing"}\n', Headers({'server': 'SynGX', 'date': 'Tue, 27 May 2025 19:29:49 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '76', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization', 'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS', 'access-control-allow-origin': 'https://beta.saluteai.sberdevices.ru', 'x-request-id': 'ad498b37-2551-435b-9344-3a96cc9c920d', 'x-session-id': '07da892c-2127-4178-bf74-a78ec9b3e21f', 'allow': 'GET, POST', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}))
+2025-05-27 22:30:31,435 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:30:31,435 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:30:31,514 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 22:30:32,708 - __main__ - INFO - Загружено MCP инструментов: 12
+2025-05-27 22:30:32,724 - __main__ - INFO - Доступные инструменты: generate_docx, get_template_variables, validate_template, read_docx, append_to_docx, create_docx, list_files, copy_file, move_file, create_folder, delete_folder, delete_file
+2025-05-27 22:30:36,455 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2025-05-27 22:30:36,757 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 422 Unprocessable Entity"
+2025-05-27 22:30:36,757 - __main__ - ERROR - Ошибка в цикле агента: (URL('https://gigachat.devices.sberbank.ru/api/v1/chat/completions'), 422, b'{"status":422,"message":"Field \'properties.context.properties\' is missing"}\n', Headers({'server': 'SynGX', 'date': 'Tue, 27 May 2025 19:30:35 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '76', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization', 'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS', 'access-control-allow-origin': 'https://beta.saluteai.sberdevices.ru', 'x-request-id': '630889dd-1bf2-4c90-a295-e15915838ab4', 'x-session-id': '6306289b-7fcb-45cd-8577-b98909170776', 'allow': 'GET, POST', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}))
+2025-05-27 22:31:55,428 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:31:55,428 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:31:55,491 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 22:31:56,773 - __main__ - INFO - Загружено MCP инструментов: 12
+2025-05-27 22:31:56,773 - __main__ - INFO - Доступные инструменты: generate_docx, get_template_variables, validate_template, read_docx, append_to_docx, create_docx, list_files, copy_file, move_file, create_folder, delete_folder, delete_file
+2025-05-27 22:32:00,835 - __main__ - ERROR - Ошибка в цикле агента: Expected dict, got [SystemMessage(content='Ты интеллектуальный агент-помощник для автоматизации работы с документами. Специализируешься на создании документов по шаблонам, поиске информации и автоматизации документооборота. Используй только MCP-инструменты для взаимодействия с внешними системами.\n\nПравила работы:\n- Всегда используй только MCP-инструменты для взаимодействия с внешним миром\n- Перед генерацией документов проверяй шаблоны функцией validate_template\n- Получай список переменных шаблона через get_template_variables перед заполнением\n- Создавай документы в стиле предоставленных образцов и шаблонов\n- Соблюдай корпоративный стиль оформления документов\n- Отвечай только на русском языке, если не указано иное\n- Перед выполнением опасных операций (удаление, перезапись файлов) ОБЯЗАТЕЛЬНО запрашивай подтверждение\n- Сохраняй исходную структуру и оформление документов при редактировании\n- При поиске информации используй Tavily для получения актуальных данных\n- Объясняй каждый шаг процесса работы с документами\n- При ошибках предлагай конкретные варианты решения проблемы\n\nРабочие процессы:\n\nDocument Generation:\n  1. Проверить корректность шаблона\n  2. Получить список переменных\n  3. Собрать данные для заполнения\n  4. Сгенерировать документ\n  5. Подтвердить успешное создание\n\nTemplate Analysis:\n  1. Валидировать шаблон\n  2. Извлечь переменные\n  3. Проанализировать структуру\n  4. Предоставить рекомендации\n\nСтиль общения: профессиональный и дружелюбный\nТон: помогающий и объясняющий\nПодход: пошаговый и методичный', additional_kwargs={}, response_metadata={}), HumanMessage(content='привет', additional_kwargs={}, response_metadata={})]
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/INVALID_GRAPH_NODE_RETURN_VALUE
+2025-05-27 22:32:21,421 - __main__ - ERROR - Ошибка в цикле агента: Expected dict, got [SystemMessage(content='Ты интеллектуальный агент-помощник для автоматизации работы с документами. Специализируешься на создании документов по шаблонам, поиске информации и автоматизации документооборота. Используй только MCP-инструменты для взаимодействия с внешними системами.\n\nПравила работы:\n- Всегда используй только MCP-инструменты для взаимодействия с внешним миром\n- Перед генерацией документов проверяй шаблоны функцией validate_template\n- Получай список переменных шаблона через get_template_variables перед заполнением\n- Создавай документы в стиле предоставленных образцов и шаблонов\n- Соблюдай корпоративный стиль оформления документов\n- Отвечай только на русском языке, если не указано иное\n- Перед выполнением опасных операций (удаление, перезапись файлов) ОБЯЗАТЕЛЬНО запрашивай подтверждение\n- Сохраняй исходную структуру и оформление документов при редактировании\n- При поиске информации используй Tavily для получения актуальных данных\n- Объясняй каждый шаг процесса работы с документами\n- При ошибках предлагай конкретные варианты решения проблемы\n\nРабочие процессы:\n\nDocument Generation:\n  1. Проверить корректность шаблона\n  2. Получить список переменных\n  3. Собрать данные для заполнения\n  4. Сгенерировать документ\n  5. Подтвердить успешное создание\n\nTemplate Analysis:\n  1. Валидировать шаблон\n  2. Извлечь переменные\n  3. Проанализировать структуру\n  4. Предоставить рекомендации\n\nСтиль общения: профессиональный и дружелюбный\nТон: помогающий и объясняющий\nПодход: пошаговый и методичный', additional_kwargs={}, response_metadata={}), HumanMessage(content='привет', additional_kwargs={}, response_metadata={}), HumanMessage(content='помощь', additional_kwargs={}, response_metadata={})]
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/INVALID_GRAPH_NODE_RETURN_VALUE
+2025-05-27 22:35:26,909 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:35:26,909 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:35:26,989 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 22:35:28,192 - __main__ - INFO - Загружено MCP инструментов: 12
+2025-05-27 22:35:28,208 - __main__ - INFO - Доступные инструменты: generate_docx, get_template_variables, validate_template, read_docx, append_to_docx, create_docx, list_files, copy_file, move_file, create_folder, delete_folder, delete_file
+2025-05-27 22:35:31,515 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2025-05-27 22:35:31,844 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 422 Unprocessable Entity"
+2025-05-27 22:35:31,844 - __main__ - ERROR - Ошибка в цикле агента: (URL('https://gigachat.devices.sberbank.ru/api/v1/chat/completions'), 422, b'{"status":422,"message":"Field \'properties.context.properties\' is missing"}\n', Headers({'server': 'SynGX', 'date': 'Tue, 27 May 2025 19:35:31 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '76', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization', 'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS', 'access-control-allow-origin': 'https://beta.saluteai.sberdevices.ru', 'x-request-id': '2da35010-c98e-45e7-bfcc-52bbdb7cae82', 'x-session-id': '9a72b215-6bb7-4229-b235-51ee14eced12', 'allow': 'GET, POST', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}))
+2025-05-27 22:37:49,523 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:37:49,523 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:37:49,596 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 22:37:50,863 - __main__ - INFO - Загружено MCP инструментов: 12
+2025-05-27 22:37:50,881 - __main__ - INFO - Доступные инструменты: generate_docx, get_template_variables, validate_template, read_docx, append_to_docx, create_docx, list_files, copy_file, move_file, create_folder, delete_folder, delete_file
+2025-05-27 22:37:56,028 - __main__ - WARNING - ainvoke(messages) не сработал, пробую ainvoke({'messages': messages}): Expected dict, got [SystemMessage(content='Ты интеллектуальный агент-помощник для автоматизации работы с документами. Специализируешься на создании документов по шаблонам, поиске информации и автоматизации документооборота. Используй только MCP-инструменты для взаимодействия с внешними системами.\n\nПравила работы:\n- Всегда используй только MCP-инструменты для взаимодействия с внешним миром\n- Перед генерацией документов проверяй шаблоны функцией validate_template\n- Получай список переменных шаблона через get_template_variables перед заполнением\n- Создавай документы в стиле предоставленных образцов и шаблонов\n- Соблюдай корпоративный стиль оформления документов\n- Отвечай только на русском языке, если не указано иное\n- Перед выполнением опасных операций (удаление, перезапись файлов) ОБЯЗАТЕЛЬНО запрашивай подтверждение\n- Сохраняй исходную структуру и оформление документов при редактировании\n- При поиске информации используй Tavily для получения актуальных данных\n- Объясняй каждый шаг процесса работы с документами\n- При ошибках предлагай конкретные варианты решения проблемы\n\nРабочие процессы:\n\nDocument Generation:\n  1. Проверить корректность шаблона\n  2. Получить список переменных\n  3. Собрать данные для заполнения\n  4. Сгенерировать документ\n  5. Подтвердить успешное создание\n\nTemplate Analysis:\n  1. Валидировать шаблон\n  2. Извлечь переменные\n  3. Проанализировать структуру\n  4. Предоставить рекомендации\n\nСтиль общения: профессиональный и дружелюбный\nТон: помогающий и объясняющий\nПодход: пошаговый и методичный', additional_kwargs={}, response_metadata={}), HumanMessage(content='привет', additional_kwargs={}, response_metadata={})]
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/INVALID_GRAPH_NODE_RETURN_VALUE
+2025-05-27 22:37:56,173 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2025-05-27 22:37:56,469 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 422 Unprocessable Entity"
+2025-05-27 22:37:56,469 - __main__ - ERROR - Ошибка в цикле агента: (URL('https://gigachat.devices.sberbank.ru/api/v1/chat/completions'), 422, b'{"status":422,"message":"Field \'properties.context.properties\' is missing"}\n', Headers({'server': 'SynGX', 'date': 'Tue, 27 May 2025 19:37:55 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '76', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization', 'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS', 'access-control-allow-origin': 'https://beta.saluteai.sberdevices.ru', 'x-request-id': '8b7f4e5d-b682-457c-877d-69ea8dda5c4f', 'x-session-id': '21ed4dd4-bc05-4306-b885-e07a601d9c5a', 'allow': 'GET, POST', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}))
+2025-05-27 22:38:53,382 - __main__ - WARNING - ainvoke(messages) не сработал, пробую ainvoke({'messages': messages}): Expected dict, got [SystemMessage(content='Ты интеллектуальный агент-помощник для автоматизации работы с документами. Специализируешься на создании документов по шаблонам, поиске информации и автоматизации документооборота. Используй только MCP-инструменты для взаимодействия с внешними системами.\n\nПравила работы:\n- Всегда используй только MCP-инструменты для взаимодействия с внешним миром\n- Перед генерацией документов проверяй шаблоны функцией validate_template\n- Получай список переменных шаблона через get_template_variables перед заполнением\n- Создавай документы в стиле предоставленных образцов и шаблонов\n- Соблюдай корпоративный стиль оформления документов\n- Отвечай только на русском языке, если не указано иное\n- Перед выполнением опасных операций (удаление, перезапись файлов) ОБЯЗАТЕЛЬНО запрашивай подтверждение\n- Сохраняй исходную структуру и оформление документов при редактировании\n- При поиске информации используй Tavily для получения актуальных данных\n- Объясняй каждый шаг процесса работы с документами\n- При ошибках предлагай конкретные варианты решения проблемы\n\nРабочие процессы:\n\nDocument Generation:\n  1. Проверить корректность шаблона\n  2. Получить список переменных\n  3. Собрать данные для заполнения\n  4. Сгенерировать документ\n  5. Подтвердить успешное создание\n\nTemplate Analysis:\n  1. Валидировать шаблон\n  2. Извлечь переменные\n  3. Проанализировать структуру\n  4. Предоставить рекомендации\n\nСтиль общения: профессиональный и дружелюбный\nТон: помогающий и объясняющий\nПодход: пошаговый и методичный', additional_kwargs={}, response_metadata={}, id='d5010e71-f94c-4867-b432-a93031ca95dc'), HumanMessage(content='привет', additional_kwargs={}, response_metadata={}, id='03e2edfb-392f-467b-a5c9-64463cd5bfaa'), HumanMessage(content='& "c:/Users/mybook/Desktop/test/Cursor AI/LLM_gigachat_claude/.venv/Scripts/python.exe" "c:/Users/mybook/Desktop/test/Cursor AI/LLM_gigachat_claude/agent.py"', additional_kwargs={}, response_metadata={})]
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/INVALID_GRAPH_NODE_RETURN_VALUE
+2025-05-27 22:38:53,640 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 422 Unprocessable Entity"
+2025-05-27 22:38:53,640 - __main__ - ERROR - Ошибка в цикле агента: (URL('https://gigachat.devices.sberbank.ru/api/v1/chat/completions'), 422, b'{"status":422,"message":"Field \'properties.context.properties\' is missing"}\n', Headers({'server': 'SynGX', 'date': 'Tue, 27 May 2025 19:38:52 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '76', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization', 'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS', 'access-control-allow-origin': 'https://beta.saluteai.sberdevices.ru', 'x-request-id': 'fa8ff100-7e94-4dd1-bf89-a1c6b2e284aa', 'x-session-id': '74ed5378-59e7-4352-9b39-2849f5895ca2', 'allow': 'GET, POST', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}))
+2025-05-27 22:39:02,942 - __main__ - INFO - MCP клиент завершил работу
+2025-05-27 22:39:06,577 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:39:06,578 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:39:06,653 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 22:39:07,889 - __main__ - INFO - Загружено MCP инструментов: 12
+2025-05-27 22:39:07,905 - __main__ - INFO - Доступные инструменты: generate_docx, get_template_variables, validate_template, read_docx, append_to_docx, create_docx, list_files, copy_file, move_file, create_folder, delete_folder, delete_file
+2025-05-27 22:39:10,074 - __main__ - WARNING - ainvoke(messages) не сработал, пробую ainvoke({'messages': messages}): name 'llm' is not defined
+2025-05-27 22:39:10,208 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2025-05-27 22:39:10,506 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 422 Unprocessable Entity"
+2025-05-27 22:39:10,506 - __main__ - ERROR - Ошибка в цикле агента: (URL('https://gigachat.devices.sberbank.ru/api/v1/chat/completions'), 422, b'{"status":422,"message":"Field \'properties.context.properties\' is missing"}\n', Headers({'server': 'SynGX', 'date': 'Tue, 27 May 2025 19:39:09 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '76', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization', 'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS', 'access-control-allow-origin': 'https://beta.saluteai.sberdevices.ru', 'x-request-id': 'a83eba80-12e9-457b-89a9-8a29c6c37557', 'x-session-id': '6a61065e-e5e1-4979-82b3-1952aaff79dd', 'allow': 'GET, POST', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}))
+2025-05-27 22:40:45,768 - __main__ - INFO - MCP клиент завершил работу
+2025-05-27 22:41:08,202 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:41:08,202 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:41:08,282 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 22:41:09,538 - __main__ - INFO - Загружено MCP инструментов: 12
+2025-05-27 22:41:09,556 - __main__ - INFO - Доступные инструменты: generate_docx, get_template_variables, validate_template, read_docx, append_to_docx, create_docx, list_files, copy_file, move_file, create_folder, delete_folder, delete_file
+2025-05-27 22:41:13,908 - __main__ - ERROR - Ошибка в цикле агента: name 'llm' is not defined
+2025-05-27 22:41:40,464 - __main__ - INFO - MCP клиент завершил работу
+2025-05-27 22:42:24,682 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:42:24,682 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:42:24,783 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 22:42:26,008 - __main__ - INFO - Загружено MCP инструментов: 12
+2025-05-27 22:42:26,027 - __main__ - INFO - Доступные инструменты: generate_docx, get_template_variables, validate_template, read_docx, append_to_docx, create_docx, list_files, copy_file, move_file, create_folder, delete_folder, delete_file
+2025-05-27 22:42:32,497 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2025-05-27 22:42:32,801 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 422 Unprocessable Entity"
+2025-05-27 22:42:32,801 - __main__ - ERROR - Ошибка в цикле агента: (URL('https://gigachat.devices.sberbank.ru/api/v1/chat/completions'), 422, b'{"status":422,"message":"Field \'properties.context.properties\' is missing"}\n', Headers({'server': 'SynGX', 'date': 'Tue, 27 May 2025 19:42:32 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '76', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization', 'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS', 'access-control-allow-origin': 'https://beta.saluteai.sberdevices.ru', 'x-request-id': 'a6ec81c4-df9d-417c-9530-eb7a0235e016', 'x-session-id': 'c0103e62-11d4-4778-84cb-85101b6eddf6', 'allow': 'GET, POST', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}))
+2025-05-27 22:42:42,142 - __main__ - INFO - MCP клиент завершил работу
+2025-05-27 22:44:17,152 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:44:17,152 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:44:17,227 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 22:44:18,440 - __main__ - INFO - Загружено MCP инструментов: 12
+2025-05-27 22:44:18,462 - __main__ - INFO - Доступные инструменты: generate_docx, get_template_variables, validate_template, read_docx, append_to_docx, create_docx, list_files, copy_file, move_file, create_folder, delete_folder, delete_file
+2025-05-27 22:44:23,295 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2025-05-27 22:44:23,604 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 422 Unprocessable Entity"
+2025-05-27 22:44:23,604 - __main__ - ERROR - Ошибка в цикле агента: (URL('https://gigachat.devices.sberbank.ru/api/v1/chat/completions'), 422, b'{"status":422,"message":"Field \'properties.context.properties\' is missing"}\n', Headers({'server': 'SynGX', 'date': 'Tue, 27 May 2025 19:44:22 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '76', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization', 'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS', 'access-control-allow-origin': 'https://beta.saluteai.sberdevices.ru', 'x-request-id': 'bb5cb431-307f-4534-b223-b4570a6a250a', 'x-session-id': '48b038c8-eab0-4098-9506-4d2d5394040c', 'allow': 'GET, POST', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}))
+2025-05-27 22:44:31,942 - __main__ - INFO - MCP клиент завершил работу
+2025-05-27 22:45:28,608 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:45:28,608 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:45:28,677 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 22:45:29,861 - __main__ - INFO - Загружено MCP инструментов: 12
+2025-05-27 22:45:29,877 - __main__ - INFO - Доступные инструменты: generate_docx, get_template_variables, validate_template, read_docx, append_to_docx, create_docx, list_files, copy_file, move_file, create_folder, delete_folder, delete_file
+2025-05-27 22:45:36,788 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2025-05-27 22:45:37,069 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 422 Unprocessable Entity"
+2025-05-27 22:45:37,069 - __main__ - ERROR - Ошибка в цикле агента: (URL('https://gigachat.devices.sberbank.ru/api/v1/chat/completions'), 422, b'{"status":422,"message":"Field \'properties.context.properties\' is missing"}\n', Headers({'server': 'SynGX', 'date': 'Tue, 27 May 2025 19:45:36 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '76', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization', 'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS', 'access-control-allow-origin': 'https://beta.saluteai.sberdevices.ru', 'x-request-id': 'd215c361-5dbe-47bc-b329-6f0a71a2902d', 'x-session-id': '8180eff4-1ece-4bf2-a863-d6cdfd2bdb0b', 'allow': 'GET, POST', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}))
+2025-05-27 22:46:02,219 - __main__ - INFO - MCP клиент завершил работу
+2025-05-27 22:55:03,607 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 22:55:03,607 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 22:55:03,688 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 22:55:04,904 - __main__ - INFO - Загружено MCP инструментов: 12
+2025-05-27 22:55:04,920 - __main__ - INFO - Доступные инструменты: generate_docx, get_template_variables, validate_template, read_docx, append_to_docx, create_docx, list_files, copy_file, move_file, create_folder, delete_folder, delete_file
+2025-05-27 22:55:10,695 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2025-05-27 22:55:11,088 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 422 Unprocessable Entity"
+2025-05-27 22:55:11,088 - __main__ - ERROR - Ошибка в цикле агента: (URL('https://gigachat.devices.sberbank.ru/api/v1/chat/completions'), 422, b'{"status":422,"message":"Field \'properties.context.properties\' is missing"}\n', Headers({'server': 'SynGX', 'date': 'Tue, 27 May 2025 19:55:10 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '76', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization', 'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS', 'access-control-allow-origin': 'https://beta.saluteai.sberdevices.ru', 'x-request-id': '34bfd464-c2e5-48a4-860d-f070fc825c76', 'x-session-id': '00e3a999-e8b8-4bdf-9686-89107cfd941b', 'allow': 'GET, POST', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}))
+2025-05-27 23:03:08,217 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 23:03:08,217 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 23:03:08,293 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 23:03:09,512 - __main__ - INFO - Загружено MCP инструментов: 12
+2025-05-27 23:03:09,530 - __main__ - INFO - Доступные инструменты: generate_docx, get_template_variables, validate_template, read_docx, append_to_docx, create_docx, list_files, copy_file, move_file, create_folder, delete_folder, delete_file
+2025-05-27 23:03:14,179 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2025-05-27 23:03:14,517 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 422 Unprocessable Entity"
+2025-05-27 23:03:14,517 - __main__ - ERROR - Ошибка в цикле агента: (URL('https://gigachat.devices.sberbank.ru/api/v1/chat/completions'), 422, b'{"status":422,"message":"Field \'properties.context.properties\' is missing"}\n', Headers({'server': 'SynGX', 'date': 'Tue, 27 May 2025 20:03:13 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '76', 'connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization', 'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS', 'access-control-allow-origin': 'https://beta.saluteai.sberdevices.ru', 'x-request-id': '4348f460-5a83-4761-b047-47a8ef5f4528', 'x-session-id': '763ad39a-4a1f-447b-bbd1-ecf495d97445', 'allow': 'GET, POST', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}))
+2025-05-27 23:03:21,309 - __main__ - INFO - MCP клиент завершил работу
+2025-05-27 23:03:28,899 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 23:03:28,899 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 23:03:28,978 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 23:03:30,224 - __main__ - INFO - Загружено MCP инструментов: 12
+2025-05-27 23:03:30,230 - __main__ - INFO - Доступные инструменты: generate_docx, get_template_variables, validate_template, read_docx, append_to_docx, create_docx, list_files, copy_file, move_file, create_folder, delete_folder, delete_file
+2025-05-27 23:03:37,071 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2025-05-27 23:03:37,336 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 23:03:54,975 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 23:04:14,677 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 23:05:21,656 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 23:07:56,038 - __main__ - ERROR - Ошибка закрытия MCP клиента: 'MultiServerMCPClient' object has no attribute 'close'
+2025-05-27 23:12:10,558 - __main__ - INFO - Активные MCP серверы: doc-generator, fs-mcp
+2025-05-27 23:12:10,558 - __main__ - INFO - Инициализация GigaChat LLM...
+2025-05-27 23:12:10,625 - __main__ - INFO - Подключение к MCP серверам: ['doc-generator', 'fs-mcp']
+2025-05-27 23:12:11,876 - __main__ - INFO - Загружено MCP инструментов: 12
+2025-05-27 23:12:11,876 - __main__ - INFO - Доступные инструменты: generate_docx, get_template_variables, validate_template, read_docx, append_to_docx, create_docx, list_files, copy_file, move_file, create_folder, delete_folder, delete_file
+2025-05-27 23:12:19,170 - httpx - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2025-05-27 23:12:19,457 - httpx - INFO - HTTP Request: POST https://gigachat.devices.sberbank.ru/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-05-27 23:12:22,634 - __main__ - ERROR - Ошибка закрытия MCP клиента: 'MultiServerMCPClient' object has no attribute 'close'

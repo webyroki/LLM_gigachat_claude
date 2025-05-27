@@ -1,6 +1,6 @@
 # MCP-сервер для работы с файловой системой и базовыми операциями с файлами/папками
-# Использует context7-mcp
-from context7.mcp.server.fastmcp import FastMCP
+import sys
+from mcp.server.fastmcp import FastMCP
 import os
 import shutil
 from docx import Document
@@ -143,5 +143,6 @@ def delete_file(filename: str) -> str:
 
 # Точка входа MCP-сервера
 if __name__ == "__main__":
-    logger.info("Запуск MCP-сервера FSManager...")
-    mcp.run(transport="stdio") 
+    transport = sys.argv[1] if len(sys.argv) > 1 else "stdio"
+    logger.info(f"Запуск MCP-сервера FSManager с транспортом {transport}...")
+    mcp.run(transport=transport) 

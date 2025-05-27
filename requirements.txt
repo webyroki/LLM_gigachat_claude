@@ -4,4 +4,4 @@ langchain-mcp-adapters
 langgraph
 python-dotenv
 docxtpl
-context7-mcp 
+mcp 
